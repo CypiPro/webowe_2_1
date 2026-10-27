@@ -14,6 +14,7 @@
       })
   })
 
+  // Ćwiczenie 1
   cw1.addEventListener("click", function () {
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
