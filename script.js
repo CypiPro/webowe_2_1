@@ -48,7 +48,26 @@
   })
 
   cw3.addEventListener("click", function () {
-    //TODO
+    answer.innerHTML = "Processing..."
+
+    setTimeout(() => {
+      fetch(`https://jsonplaceholder.typicode.com/posts`, {
+        method: "POST",
+        body: JSON.stringify({
+          title: "Przykładowy tytuł",
+          body: "Treść przykładowego posta",
+          userId: 7
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json)
+          answer.innerHTML = `Dodano nowy post o ID = ${json.id}`
+        });
+    }, 1000)
   })
 
 })();
