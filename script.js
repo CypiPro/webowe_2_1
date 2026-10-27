@@ -16,6 +16,8 @@
 
   // Ćwiczenie 1
   cw1.addEventListener("click", function () {
+    answer.innerHTML = "Loading..."
+    setTimeout(()=>{
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
     .then(array => {
@@ -28,7 +30,7 @@
         </li> `
       })
       answer.innerHTML = List
-    })
+    })}, 1000)
   })
 
   cw2.addEventListener("click", function () {
