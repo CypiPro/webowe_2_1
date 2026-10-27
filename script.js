@@ -34,7 +34,17 @@
   })
 
   cw2.addEventListener("click", function () {
-    //TODO
+    var postId = document.getElementById("posts").value;
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+      .then(response => response.json())
+      .then(post => {
+        answer.innerHTML = 
+           `
+           <b>${post.title}</b>
+           <p>${post.body}</p>
+           `
+        })
   })
 
   cw3.addEventListener("click", function () {
